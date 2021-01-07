@@ -11,10 +11,10 @@ Pong game implemented with VHDL for use with Go Board FPGA w/ VGA output
 
 ## what I learned
 
-1. VHDL
+1. VHDL syntax, testbenching, behavioral code
 2. Debouncing through VHDL
-3. UART
-4. VGA
+3. UART protocol
+4. VGA interface output and timing
 5. Overall FPGA design process
 
 ## notes
@@ -29,6 +29,8 @@ pictures
 [DigiKey Debounce](https://www.digikey.com/eewiki/pages/viewpage.action?pageId=4980758)
 
 [DigiKey UART](https://www.digikey.com/eewiki/pages/viewpage.action?pageId=59507062)
+
+[DigiKey VGA](https://www.digikey.com/eewiki/pages/viewpage.action?pageId=15925278)
 
 [NandLand UART Reciever](https://www.nandland.com/goboard/uart-go-board-project-part1.html)
 
