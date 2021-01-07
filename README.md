@@ -15,7 +15,8 @@ Pong game implemented with VHDL for use with Go Board FPGA w/ VGA output
 1. VHDL
 2. Debouncing through VHDL
 3. UART
-4. Overall FPGA design process
+4. VGA
+5. Overall FPGA design process
 
 ## notes
 
