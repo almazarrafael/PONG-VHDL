@@ -26,4 +26,4 @@ stuff
 pictures
 
 ## resources
-![UART](https://www.digikey.com/eewiki/pages/viewpage.action?pageId=59507062)
+[UART](https://www.digikey.com/eewiki/pages/viewpage.action?pageId=59507062)
