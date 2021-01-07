@@ -27,7 +27,11 @@ pictures
 
 ## resources
 [DigiKey Debounce](https://www.digikey.com/eewiki/pages/viewpage.action?pageId=4980758)
+
 [DigiKey UART](https://www.digikey.com/eewiki/pages/viewpage.action?pageId=59507062)
+
 [NandLand UART Reciever](https://www.nandland.com/goboard/uart-go-board-project-part1.html)
+
 [NandLand UART Transmitter](https://www.nandland.com/goboard/uart-go-board-project-part2.html)
+
 [NandLand VGA](https://www.nandland.com/goboard/vga-introduction-test-patterns.html)
