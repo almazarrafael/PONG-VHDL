@@ -33,9 +33,11 @@ For use with Go Board. Using this on another FPGA will need to have the IO ident
 
 ## images
 
-pictures
+![PONG Circuit Diagram](https://raw.githubusercontent.com/almazarrafael/PONG-VHDL/main/PONG%20Block%20Diagram.PNG?token=ALHDSCWOQVSJVHICT7Z5TMDAAJD6Y)
 
 ## resources
+[DigiKey Scheme-it](https://www.digikey.com/schemeit/project/)
+
 [DigiKey Debounce](https://www.digikey.com/eewiki/pages/viewpage.action?pageId=4980758)
 
 [DigiKey UART](https://www.digikey.com/eewiki/pages/viewpage.action?pageId=59507062)
