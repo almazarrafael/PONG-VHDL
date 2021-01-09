@@ -36,7 +36,6 @@ PONG Circuit Diagram
 ![PONG Circuit Diagram](https://raw.githubusercontent.com/almazarrafael/PONG-VHDL/main/PONG%20Block%20Diagram.PNG?token=ALHDSCWOQVSJVHICT7Z5TMDAAJD6Y)
 
 ## resources
-## resources
 Circuit Diagram Schematic Tool:
 
 [DigiKey Scheme-it](https://www.digikey.com/schemeit/project/)
