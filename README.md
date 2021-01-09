@@ -1,18 +1,18 @@
 # PONG-VHDL
 
 ## description
-Pong game implemented with VHDL for use with Go Board FPGA w/ VGA output
+Pong game implemented with VHDL for use with [Go Board](https://www.nandland.com/goboard/introduction.html) FPGA w/ VGA output
 
 ## function
 
 1. Classic 2-Player PONG game running through the Go Board's Lattice iCE40HX1k FPGA.
-2. Inputs through keyboard (using UART) and the on board buttons for player paddle control.
-3. Outputs the game through VGA display and the score through the on board seven segment display.
+2. Inputs through keyboard (using UART) and the on-board buttons for player paddle control.
+3. Outputs the game through VGA display and the score through the on-board seven segment display.
 4. Change color by pressing Q,W,E,R and, T to start the game using Tera Term (115,200 Baud rate). Use respective buttons to control the paddles on each side.
 
 ## installation
-1. Clone the repo and use the Pong.bin bitmap to program your Go Board through Diamond Programmer.
-2. You can also use the .vhd files to create your own bitmap using icecube2.
+1. Clone the repo and use the Pong.bin bitmap to program your Go Board through [Diamond Programmer](http://www.latticesemi.com/Products/DesignSoftwareAndIP/FPGAandLDS/LatticeDiamond).
+2. You can also use the .vhd files to create your own bitmap using [icecube2](http://www.latticesemi.com/Products/DesignSoftwareAndIP/FPGAandLDS/iCEcube2.aspx).
 3. Follow NandLand's [guide](https://www.nandland.com/goboard/your-first-go-board-project.html) on how to do the above steps.
 
 ## what I learned
