@@ -38,14 +38,17 @@ PONG Circuit Diagram
 ## resources
 ## resources
 Circuit Diagram Schematic Tool:
+
 [DigiKey Scheme-it](https://www.digikey.com/schemeit/project/)
 
 Debounce:
+
 [DigiKey Debounce](https://www.digikey.com/eewiki/pages/viewpage.action?pageId=4980758)
 
 [NandLand Debounce](https://www.nandland.com/goboard/debounce-switch-project.html)
 
 UART:
+
 [DigiKey UART](https://www.digikey.com/eewiki/pages/viewpage.action?pageId=59507062)
 
 [NandLand UART Reciever](https://www.nandland.com/goboard/uart-go-board-project-part1.html)
@@ -53,10 +56,13 @@ UART:
 [NandLand UART Transmitter](https://www.nandland.com/goboard/uart-go-board-project-part2.html)
 
 VGA:
+
 [DigiKey VGA](https://www.digikey.com/eewiki/pages/viewpage.action?pageId=15925278)
 
 [NandLand VGA](https://www.nandland.com/goboard/vga-introduction-test-patterns.html)
 
 PONG:
+
 [fpga4fun PONG](https://www.fpga4fun.com/PongGame.html)
+
 [NandLand PONG](https://www.nandland.com/goboard/pong-game-in-fpga-with-go-board-vga.html)
