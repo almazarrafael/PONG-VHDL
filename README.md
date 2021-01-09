@@ -32,7 +32,7 @@ The creator of the Go Board also left some suggestions on improving the Pong gam
 For use with Go Board. Using this on another FPGA will need to have the IO identifiers adjusted to match the constraints file and the UART and VGA timing values recalculated to match its clock frequency.
 
 ## images
-
+PONG Circuit Diagram
 ![PONG Circuit Diagram](https://raw.githubusercontent.com/almazarrafael/PONG-VHDL/main/PONG%20Block%20Diagram.PNG?token=ALHDSCWOQVSJVHICT7Z5TMDAAJD6Y)
 
 ## resources
