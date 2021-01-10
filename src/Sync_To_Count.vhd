@@ -20,20 +20,20 @@ end Sync_To_Count;
 
 architecture Behavior of Sync_To_Count is
 
-    signal r_colCount : natural range 0 to (g_totalCols - 1)  := 0;
-    signal r_rowCount : natural range 0 to (g_totalRows - 1) := 0;
-
     signal r_VSync : std_logic := '0';
     signal r_HSync : std_logic := '0';
     signal w_frameStart : std_logic;
+
+    signal r_colCount : unsigned(9 downto 0) := (others => '0');
+    signal r_rowCount : unsigned(9 downto 0) := (others => '0');
 
 begin
 
     clockProc1 : process (i_clk) is
     begin
         if (rising_edge(i_clk)) then
-            r_HSync <= i_HSync;
             r_VSync <= i_VSync;
+            r_HSync <= i_HSync;
         end if;
     end process clockProc1;
 
@@ -41,16 +41,16 @@ begin
     begin
         if (rising_edge(i_clk)) then
             if (w_frameStart = '1') then
-                r_colCount <= 0;
-                r_rowCount <= 0;
+                r_colCount <= (others => '0');
+                r_rowCount <= (others => '0');
             else
-                if (r_colCount = (g_totalCols - 1)) then
-                    if (r_rowCount = (g_totalRows - 1)) then
-                        r_rowCount <= 0;
+                if (r_colCount = to_unsigned(g_totalCols - 1, r_colCount'length)) then
+                    if (r_rowCount = to_unsigned(g_totalRows - 1, r_rowCount'length)) then
+                        r_rowCount <= (others => '0');
                     else
                         r_rowCount <= r_rowCount + 1;
                     end if;
-                    r_colCount <= 0;
+                    r_colCount <= (others => '0');
                 else
                     r_colCount <= r_colCount + 1;
                 end if;
@@ -62,7 +62,8 @@ begin
 
     o_HSync <= r_HSync;
     o_VSync <= r_VSync;
-    o_colCount <= std_logic_vector(to_unsigned(r_colCount, o_colCount'length));
-    o_rowCount <= std_logic_vector(to_unsigned(r_rowCount, o_rowCount'length));
+    
+    o_colCount <= std_logic_vector(r_colCount);
+    o_rowCount <= std_logic_vector(r_rowCount);
 
 end Behavior ; -- Behavior
