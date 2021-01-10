@@ -8,9 +8,9 @@ entity colorMux is
   port (
     i_colorSel : in std_logic_vector(1 downto 0);
     i_draw     : in std_logic;
-    o_red      : out std_logic;
-    o_green    : out std_logic;
-    o_blue     : out std_logic
+    o_red      : out std_logic_vector(2 downto 0);
+    o_green    : out std_logic_vector(2 downto 0);
+    o_blue     : out std_logic_vector(2 downto 0)
   ) ;
 end entity colorMux;
 
@@ -18,9 +18,9 @@ architecture Behavior of colorMux is
     signal w_color : std_logic_vector(2 downto 0) := "000";
 begin
 
-    o_red   <= w_color(2);
-    o_green <= w_color(1);
-    o_blue  <= w_color(0);
+    o_red   <= (others => w_color(2));
+    o_green <= (others => w_color(1));
+    o_blue  <= (others => w_color(0));
 
     w_color <= "111" when (i_colorSel = "00" and i_draw = '1') else -- White
              "100" when (i_colorSel = "01" and i_draw = '1') else -- Red
