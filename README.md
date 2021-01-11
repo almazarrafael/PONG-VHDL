@@ -20,16 +20,20 @@ Pong game implemented with VHDL for use with [Go Board](https://www.nandland.com
 1. VHDL, testbenching, combinational and sequential behavioral code
 2. Button debounce filtering through VHDL
 3. UART Rx/Tx protocol
-4. VGA interface output and timing
+4. VGA interface timing and output
 5. Overall FPGA design process
 
 ## notes
 
 I wanted to further my digital design learning, so I went ahead and bought a Go Board which is very accessible for beginners and chose to learn VHDL because it's the first HDL introduced in my university. I blindly followed the tutorials on [NandLand](https://www.nandland.com/goboard/introduction.html) so that I can try stuff on my own and only look at the resources there as a safety net. For this project, I chose to use the provided UART Rx/Tx module as suggested. I plan on trying to implement it on my own and update accordingly in the future. 
 
+I've made my own VGA Driver module that essentially combines the 'Sync Pulse', 'Sync to Count' and 'Sync Porch' modules with some additional logic to properly drive the RGB signals at the right time (RGB signals MUST be low during inactive time). This can be used to directly drive the VGA port.
+
 The creator of the Go Board also left some suggestions on improving the Pong game. I will try to implement the color selecting through keyboard and UART and, use the seven segment display as a score tracker.
 
 For use with Go Board. Using this on another FPGA will need to have the IO identifiers adjusted to match the constraints file and the UART and VGA timing values recalculated to match its clock frequency.
+
+For anyone also using the Go Board. VHDL is not case sensitive but iCEcube2 is! Your inputs and outputs must exactly match the ones on the constraint file.
 
 ## images
 PONG Circuit Diagram
