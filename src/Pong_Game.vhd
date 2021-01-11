@@ -4,11 +4,11 @@ use ieee.numeric_std.all;
 
 entity Pong_Game is
   generic (
-      g_videoWidth : integer;
-      g_totalCols : integer;
-      g_totalRows : integer;
-      g_activeCols : integer;
-      g_activeRows : integer
+    g_videoWidth : integer;
+    g_totalCols : integer;
+    g_totalRows : integer;
+    g_activeCols : integer;
+    g_activeRows : integer
   );
   port (
     i_Clk : in std_logic;
@@ -19,7 +19,9 @@ entity Pong_Game is
     i_P2Dn : in std_logic;
     i_colCount : in std_logic_vector(9 downto 0);
     i_rowCount : in std_logic_vector(9 downto 0);
-    o_draw : in std_logic
+    o_P1Score : out std_logic_vector(3 downto 0);
+    o_P2Score : out std_logic_vector(3 downto 0);
+    o_draw : out std_logic
   ) ;
 end Pong_Game;
 
