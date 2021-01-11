@@ -19,7 +19,21 @@ entity Pong_Top is
     o_VGA_Grn_2 : out std_logic;
     o_VGA_Blu_0 : out std_logic;
     o_VGA_Blu_1 : out std_logic;
-    o_VGA_Blu_2 : out std_logic
+    o_VGA_Blu_2 : out std_logic;
+    o_Segment1_A : out std_logic;
+    o_Segment1_B : out std_logic;
+    o_Segment1_C : out std_logic;
+    o_Segment1_D : out std_logic;
+    o_Segment1_E : out std_logic;
+    o_Segment1_F : out std_logic;
+    o_Segment1_G : out std_logic;
+    o_Segment2_A : out std_logic;
+    o_Segment2_B : out std_logic;
+    o_Segment2_C : out std_logic;
+    o_Segment2_D : out std_logic;
+    o_Segment2_E : out std_logic;
+    o_Segment2_F : out std_logic;
+    o_Segment2_G : out std_logic
   ) ;
 end Pong_Top;
 
@@ -38,6 +52,7 @@ architecture Behavior of Pong_Top is
     signal w_red, w_grn, w_blu : std_logic_vector(2 downto 0);
     signal w_Switch_1, w_Switch_2, w_Switch_3, w_Switch_4 : std_logic;
     signal w_draw : std_logic;
+    signal w_P1Score, w_P2Score : std_logic_vector(3 downto 0);
 
 
 begin
@@ -128,7 +143,37 @@ begin
         i_P2Dn      => w_Switch_4,
         i_colCount  => w_colCount,
         i_rowCount  => w_rowCount,
+        o_P1Score   => w_P1Score,
+        o_P2Score   => w_P2Score,
         o_draw      => w_draw
+    );
+
+    -- Left digit, P1
+    SevSeg1 : entity work.SevenSegDecoder
+    port (
+        i_Clk        : i_Clk,
+        i_Binary_Num : w_P1Score,
+        o_Segment_A  : o_Segment1_A,
+        o_Segment_B  : o_Segment1_B,
+        o_Segment_C  : o_Segment1_C,
+        o_Segment_D  : o_Segment1_D,
+        o_Segment_E  : o_Segment1_E,
+        o_Segment_F  : o_Segment1_F,
+        o_Segment_G  : o_Segment1_G
+    );
+
+    -- Right digit, P2
+    SevSeg2 : entity work.SevenSegDecoder
+    port (
+        i_Clk        : i_Clk,
+        i_Binary_Num : w_P2Score,
+        o_Segment_A  : o_Segment2_A,
+        o_Segment_B  : o_Segment2_B,
+        o_Segment_C  : o_Segment2_C,
+        o_Segment_D  : o_Segment2_D,
+        o_Segment_E  : o_Segment2_E,
+        o_Segment_F  : o_Segment2_F,
+        o_Segment_G  : o_Segment2_G
     );
 
 end Behavior ; -- Behavior
