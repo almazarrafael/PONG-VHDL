@@ -82,5 +82,26 @@ begin
     o_paddleY     => w_paddleYP2
   );
 
+  pongBall : entity work.pongBallControl
+  port (
+    i_Clk => i_Clk,
+    i_gameActive => w_gameActive,
+    i_colCountDiv => w_colCountDiv,
+    i_rowCountDiv => w_rowCountDiv,
+    o_drawBall => w_drawBall,
+    o_ballX => w_ballX,
+    o_ballY => w_ballY
+  );
+
+  w_paddleYP1Bot <= unsigned(w_paddleYP1);
+  w_paddleYP1Top <= w_paddleYP1Bot + to_unsigned(c_paddleHeight, w_paddleYP1Bot'length);
+
+  w_paddleYP2Bot <= unsigned(w_paddleYP2);
+  w_paddleYP2Top <= w_paddleYP2Bot + to_unsigned(c_paddleHeight, w_paddleYP2Bot'length);
+
+  -- TODO: add fsm
+
+  -- TODO: output p1score, p2score, draw signals
+  -- possibly have to delay them due to register delay
 
   end Behavior ; -- Behavior
