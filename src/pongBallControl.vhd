@@ -4,13 +4,13 @@ use ieee.numeric_std.all;
 
 entity pongBallControl is
   port (
-    i_Clk
-    i_gameActive
-    i_colCountDiv
-    i_rowCountDiv
-    o_drawBall
-    o_ballX
-    o_ballY
+    i_Clk         : in std_logic;
+    i_gameActive  : in std_logic;
+    i_colCountDiv : in std_logic_vector(5 downto 0);
+    i_rowCountDiv : in std_logic_vector(5 downto 0);
+    o_drawBall    : in std_logic;
+    o_ballX       : in std_logic_vector(5 downto 0);
+    o_ballY       : in std_logic_vector(5 downto 0)
   ) ;
 end pongBallControl;
 
