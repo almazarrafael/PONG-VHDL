@@ -63,12 +63,12 @@ begin
         end if;
     end process clockProc;
 
-    o_Segment_A <= p_hexDecoder(6);
-    o_Segment_B <= p_hexDecoder(5);
-    o_Segment_C <= p_hexDecoder(4);
-    o_Segment_D <= p_hexDecoder(3);
-    o_Segment_E <= p_hexDecoder(2);
-    o_Segment_F <= p_hexDecoder(1);
-    o_Segment_G <= p_hexDecoder(0);
+    o_Segment_A <= not p_hexDecoder(6);
+    o_Segment_B <= not p_hexDecoder(5);
+    o_Segment_C <= not p_hexDecoder(4);
+    o_Segment_D <= not p_hexDecoder(3);
+    o_Segment_E <= not p_hexDecoder(2);
+    o_Segment_F <= not p_hexDecoder(1);
+    o_Segment_G <= not p_hexDecoder(0);
 
 end Behavior ; -- Behavior
