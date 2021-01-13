@@ -1,6 +1,6 @@
 -- Purpose: takes UART keyboard input and outputs the appropriate signals for starting the game and selecting display color
 -- colorSel[1:0]
--- Q- 00: White
+-- Q- 00: Black
 -- W- 01: Red
 -- E- 10: Blue
 -- R- 11: Green
@@ -33,7 +33,7 @@ begin
             r_inputByte <= i_inputByte;
             if (r_inputByte /= i_inputByte) then -- Previous input is not the same as current input
                 case i_inputByte is
-                    when x"71" => -- Q: White
+                    when x"71" => -- Q: Black
                         r_colorSel <= "00";
                     when x"77" => -- W: Red
                         r_colorSel <= "01";

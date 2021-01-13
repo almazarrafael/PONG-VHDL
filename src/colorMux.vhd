@@ -15,7 +15,7 @@ entity colorMux is
 end entity colorMux;
 
 architecture Behavior of colorMux is
-    signal w_color : std_logic_vector(2 downto 0) := "000";
+    signal w_color : std_logic_vector(2 downto 0);
 begin
 
     o_red   <= (others => w_color(2));

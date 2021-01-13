@@ -3,6 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 library work;
+use work.Pong_Pkg.all;
 
 entity paddleControl is
   generic (
@@ -14,21 +15,21 @@ entity paddleControl is
     i_rowCountdiv : in std_logic_vector(5 downto 0);
     i_paddleUp    : in std_logic;
     i_paddleDn    : in std_logic;
-    o_drawPaddle  : in std_logic;
-    o_paddleY     : in std_logic_vector(5 downto 0)
+    o_drawPaddle  : out std_logic;
+    o_paddleY     : out std_logic_vector(5 downto 0)
   ) ;
 end paddleControl;
 
-architecture Behavior of ent is
+architecture Behavior of paddleControl is
 
-    signal w_colIndex : integer range 0 to 2**i_colCountDiv;
-    signal w_rowIndex : integer range 0 to 2**i_rowCountDiv;
+    signal w_colIndex : integer range 0 to 2**i_colCountDiv'length := 0;
+    signal w_rowIndex : integer range 0 to 2**i_rowCountDiv'length := 0;
 
     signal w_paddleCountEn : std_logic;
 
     signal r_paddleCount : integer range 0 to c_paddleSpeed := 0; -- Package constant
     
-    signal r_paddleY : integer 0 to c_gmaeHeight - 1 := 0;
+    signal r_paddleY : integer range 0 to c_gameHeight - c_paddleHeight -1 := 0;
 
     signal r_drawPaddle : std_logic := '0';
 

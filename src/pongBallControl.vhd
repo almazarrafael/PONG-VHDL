@@ -2,29 +2,32 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+library work;
+use work.Pong_Pkg.all;
+
 entity pongBallControl is
   port (
     i_Clk         : in std_logic;
     i_gameActive  : in std_logic;
     i_colCountDiv : in std_logic_vector(5 downto 0);
     i_rowCountDiv : in std_logic_vector(5 downto 0);
-    o_drawBall    : in std_logic;
-    o_ballX       : in std_logic_vector(5 downto 0);
-    o_ballY       : in std_logic_vector(5 downto 0)
+    o_drawBall    : out std_logic;
+    o_ballX       : out std_logic_vector(5 downto 0);
+    o_ballY       : out std_logic_vector(5 downto 0)
   ) ;
 end pongBallControl;
 
 architecture Behavior of pongBallControl is
 
-    signal w_colIndex : integer range 0 to 2**i_colCountDiv'length;
-    signal w_rowIndex : integer range 0 to 2**i_rowCountDiv'length;
+    signal w_colIndex : integer range 0 to 2**i_colCountDiv'length := 0;
+    signal w_rowIndex : integer range 0 to 2**i_rowCountDiv'length := 0;
     
     signal r_ballCount : integer range 0 to c_ballSpeed := 0;
 
-    signal r_ballX : integer range 0 to 2**i_colCountDiv : = 0;
-    signal r_ballY : integer range 0 to 2**i_rowCountDiv : = 0;
-    signal r_ballXPrev : integer range 0 to 2**i_colCountDiv : = 0;
-    signal r_ballYPrev : integer range 0 to 2**i_rowCountDiv : = 0;
+    signal r_ballX : integer range 0 to 2**i_colCountDiv'length := 0;
+    signal r_ballY : integer range 0 to 2**i_rowCountDiv'length := 0;
+    signal r_ballXPrev : integer range 0 to 2**i_colCountDiv'length := 0;
+    signal r_ballYPrev : integer range 0 to 2**i_rowCountDiv'length := 0;
 
     signal r_drawBall : std_logic := '0';
 
@@ -54,7 +57,7 @@ begin
                     r_ballXPrev <= r_ballX;
 
                     if (r_ballXPrev < r_ballX) then
-                        if r_ballX - c_gameWidth - 1 then
+                        if r_ballX = c_gameWidth - 1 then
                             r_ballX <= r_ballX - 1;
                         else
                             r_ballX <= r_ballX + 1;
@@ -103,6 +106,6 @@ begin
 
     o_drawBall <= r_drawBall;
     o_ballX <= std_logic_vector(to_unsigned(r_ballX, o_ballX'length));
-    o_Ball_Y <= std_logic_vector(to_unsigned(r_ballY, o_ballY'length));
+    o_BallY <= std_logic_vector(to_unsigned(r_ballY, o_ballY'length));
 
 end Behavior ; -- Behavior
