@@ -25,7 +25,7 @@ PONG game implemented with VHDL for use with [Go Board](https://www.nandland.com
 
 ## notes
 
-For use with Go Board. Using this on another FPGA will need to have the IO identifiers adjusted to match the constraints file and the UART and VGA timing values recalculated to match its clock frequency. For anyone also using the Go Board. VHDL is not case sensitive but iCEcube2 is! Your inputs and outputs must exactly match the ones on the constraint file.
+For use with Go Board. Using this on another FPGA will need to have the IO identifiers adjusted to match the constraints file and use a 25MHz clock to drive the UART and VGA properly. For anyone also using the Go Board. VHDL is not case sensitive but iCEcube2 is! Your inputs and outputs must exactly match the ones on the constraint file.
 
 I wanted to further my digital design learning, so I went ahead and bought a Go Board which is very accessible for beginners and chose to learn VHDL because it's the first HDL introduced in my university. I followed the tutorials on [NandLand](https://www.nandland.com/goboard/introduction.html), but chose to modify some parts and made my own modules so I can try stuff on my own. For this project, I chose to use the provided UART Rx/Tx module as suggested. I plan on trying to implement it on my own and update accordingly in the future. 
 
