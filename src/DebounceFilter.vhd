@@ -1,3 +1,5 @@
+-- Purpose: Filter physical buttons debounce noise.
+
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -7,7 +9,7 @@ entity DebounceFilter is
     i_buttonInput     : in std_logic;
     o_debouncedButton : out std_logic
   ) ;
-end DebounceFilter;
+end entity DebounceFilter;
 
 architecture Behavior of DebounceFilter is
 
@@ -38,4 +40,4 @@ begin
 
     o_debouncedButton <= r_buttonState;
 
-end Behavior ; -- Behavior
+end architecture Behavior;

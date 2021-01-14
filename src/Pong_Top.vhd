@@ -1,3 +1,5 @@
+-- Purpose: Top module that instantiates and connects all the other modules.
+
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -41,8 +43,8 @@ entity Pong_Top is
     o_Segment2_E : out std_logic;
     o_Segment2_F : out std_logic;
     o_Segment2_G : out std_logic
-  ) ;
-end Pong_Top;
+  );
+end entity Pong_Top;
 
 architecture Behavior of Pong_Top is
 
@@ -53,21 +55,28 @@ architecture Behavior of Pong_Top is
     constant c_activeRows : integer := 480;
 
     signal w_RX_Byte : std_logic_vector(7 downto 0);
+
     signal w_colorSel : std_logic_vector(1 downto 0);
+
     signal w_startGame : std_logic;
+
     signal w_colCount, w_rowCount : std_logic_vector(9 downto 0);
+
     signal w_red, w_grn, w_blu : std_logic_vector(2 downto 0);
     signal w_red2, w_grn2, w_blu2 : std_logic_vector(2 downto 0);
-    signal w_Switch_1, w_Switch_2, w_Switch_3, w_Switch_4 : std_logic;
     signal w_draw : std_logic;
+
+    signal w_Switch_1, w_Switch_2, w_Switch_3, w_Switch_4 : std_logic;
+    
     signal w_P1Score, w_P2Score : std_logic_vector(3 downto 0);
+    
     signal w_RX_DV : std_logic;
     signal w_TX_Active : std_logic;
     signal w_TX_Serial : std_logic;
 
 begin
 
-    -- UART Keyboard Input
+    -- UART RX Keyboard Input
     UART_Rx_Module : entity work.UART_RX
     generic map (
       g_CLKS_PER_BIT => 217)
@@ -78,6 +87,7 @@ begin
       o_RX_Byte   => w_RX_Byte
     );
 
+    -- UART TX loopback for terminal output
     UART_Tx_Module : entity work.UART_TX
     generic map (
         g_CLKS_PER_BIT => 217
@@ -124,6 +134,7 @@ begin
         o_rowCount  => w_rowCount
     );
 
+    -- Drive VGA RGB signals.
     o_VGA_Red_0 <= w_red2(0);
     o_VGA_Red_1 <= w_red2(1);
     o_VGA_Red_2 <= w_red2(2);
@@ -138,7 +149,7 @@ begin
 
     colorMuxModule : entity work.colorMux
     port map (
-        i_colorSel => w_colorSel, -- red, hardcoded for testing
+        i_colorSel => w_colorSel,
         i_draw     => w_draw,
         o_red      => w_red,
         o_green    => w_grn,
@@ -223,4 +234,4 @@ begin
         o_Segment_G  => o_Segment2_G
     );
 
-end Behavior ; -- Behavior
+end architecture Behavior;

@@ -1,18 +1,21 @@
+-- Purpose: Holds the constants needed for the game.
+-- Default values are in the comments to revert back to just in case.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 package Pong_Pkg is
-    constant c_gameWidth : integer := 40;
-    constant c_gameHeight : integer := 30;
+    constant c_gameWidth : integer := 40; -- 40
+    constant c_gameHeight : integer := 30; -- 30
 
-    constant c_scoreLimit : integer := 9;
+    constant c_scoreLimit : integer := 9; -- 9
 
-    constant c_paddleHeight : integer := 6;
+    constant c_paddleHeight : integer := 6; -- 6
 
-    constant c_paddleSpeed : integer := 1250000;
+    constant c_paddleSpeed : integer := 1250000; -- 1,250,000
 
-    constant c_ballSpeed : integer := 1250000;
+    constant c_ballSpeed : integer := 1250000; -- 1,250,000
 
     constant c_paddleColLocationP1 : integer := 0;
     constant c_paddleColLocationP2 : integer := c_gameWidth - 1;

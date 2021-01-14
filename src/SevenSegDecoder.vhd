@@ -1,3 +1,5 @@
+-- Purpose: Drives the appropriate seven segment display signals based on the given input.
+
 library ieee;
 use ieee.std_logic_1164.all;
  
@@ -71,4 +73,4 @@ begin
     o_Segment_F <= not p_hexDecoder(1);
     o_Segment_G <= not p_hexDecoder(0);
 
-end Behavior ; -- Behavior
+end architecture Behavior;

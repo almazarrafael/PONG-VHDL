@@ -1,9 +1,12 @@
 -- Purpose: takes UART keyboard input and outputs the appropriate signals for starting the game and selecting display color
+
 -- colorSel[1:0]
 -- Q- 00: White
 -- W- 01: Red
 -- E- 10: Blue
 -- R- 11: Green
+
+-- startGame
 -- T- Start
 
 library ieee;
@@ -17,8 +20,8 @@ entity UART_Decoder is
     i_RX_DV : in std_logic;
     o_startGame : out std_logic;
     o_colorSel : out std_logic_vector(1 downto 0)
-  ) ;
-end UART_Decoder;
+  );
+end entity UART_Decoder;
 
 architecture Behavior of UART_Decoder is
 
@@ -44,7 +47,7 @@ begin
                     when others =>
                         r_colorSel <= "00";
                 end case;
-            else -- Previous input is the same, set startGame back to 0
+            else -- Data invalid, drive down to pulse
                 o_startGame <= '0';
             end if;
         end if;
@@ -52,4 +55,4 @@ begin
 
     o_colorSel <= r_colorSel;
 
-end Behavior ; -- Behavior
+end architecture Behavior;

@@ -1,3 +1,5 @@
+-- Purpose: Handles the player paddle control logic.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -12,13 +14,13 @@ entity paddleControl is
   port (
     i_Clk         : in std_logic;
     i_colCountDiv : in std_logic_vector(5 downto 0);
-    i_rowCountdiv : in std_logic_vector(5 downto 0);
+    i_rowCountDiv : in std_logic_vector(5 downto 0);
     i_paddleUp    : in std_logic;
     i_paddleDn    : in std_logic;
     o_drawPaddle  : out std_logic;
     o_paddleY     : out std_logic_vector(5 downto 0)
-  ) ;
-end paddleControl;
+  );
+end entity paddleControl;
 
 architecture Behavior of paddleControl is
 
@@ -27,9 +29,9 @@ architecture Behavior of paddleControl is
 
     signal w_paddleCountEn : std_logic;
 
-    signal r_paddleCount : integer range 0 to c_paddleSpeed := 0; -- Package constant
+    signal r_paddleCount : integer range 0 to c_paddleSpeed := 0;
     
-    signal r_paddleY : integer range 0 to c_gameHeight - c_paddleHeight -1 := 0;
+    signal r_paddleY : integer range 0 to c_gameHeight - c_paddleHeight - 1 := 0;
 
     signal r_drawPaddle : std_logic := '0';
 
@@ -66,7 +68,6 @@ begin
         end if;
     end process p_movePaddles;
 
-    -- 1 clock cycle delay
     p_drawPaddles : process (i_Clk) is
     begin
         if (rising_edge(i_Clk)) then
@@ -81,4 +82,4 @@ begin
     o_drawPaddle <= r_drawPaddle;
     o_paddleY <= std_logic_vector(to_unsigned(r_paddleY, o_paddleY'length));
 
-end Behavior ; -- Behavior
+end architecture Behavior;

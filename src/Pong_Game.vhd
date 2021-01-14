@@ -1,3 +1,5 @@
+-- Purpose: Handles the overall game FSM and paddle, ball instances.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -25,8 +27,8 @@ entity Pong_Game is
     o_P1Score   : out std_logic_vector(3 downto 0);
     o_P2Score   : out std_logic_vector(3 downto 0);
     o_draw      : out std_logic
-  ) ;
-end Pong_Game;
+  );
+end entity Pong_Game;
 
 architecture Behavior of Pong_Game is
 
@@ -49,7 +51,7 @@ architecture Behavior of Pong_Game is
   signal w_paddleYP1Top, w_paddleYP1Bot : unsigned(5 downto 0);
   signal w_paddleYP2Top, w_paddleYP2Bot : unsigned(5 downto 0);
 
-  signal r_P1Score, r_P2Score : integer range 0 to c_scoreLimit := 0; -- score limit: 9
+  signal r_P1Score, r_P2Score : integer range 0 to c_scoreLimit := 0;
 begin
 
   w_colCount <= i_colCount;
@@ -156,9 +158,6 @@ begin
   o_P1Score <= std_logic_vector(to_unsigned(r_P1Score, o_P1Score'length));
   o_P2Score <= std_logic_vector(to_unsigned(r_P2Score, o_P2Score'length));
 
-  --o_draw <= w_drawPaddleP2; -- always 0
-  --o_draw <= w_drawPaddleP1; -- always 1
-  --o_draw <= w_drawBall; -- always 0
   o_draw <= w_drawPaddleP2 or w_drawPaddleP1 or w_drawBall;
 
-  end Behavior ; -- Behavior
+  end architecture Behavior ;

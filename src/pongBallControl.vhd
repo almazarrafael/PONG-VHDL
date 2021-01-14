@@ -1,3 +1,5 @@
+-- Purpose: Ball movement logic.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -14,8 +16,8 @@ entity pongBallControl is
     o_drawBall    : out std_logic;
     o_ballX       : out std_logic_vector(5 downto 0);
     o_ballY       : out std_logic_vector(5 downto 0)
-  ) ;
-end pongBallControl;
+  );
+end entity pongBallControl;
 
 architecture Behavior of pongBallControl is
 
@@ -89,6 +91,7 @@ begin
                         end if;
                     end if;
                 end if;
+                
             end if;
         end if;
     end process p_moveBall;
@@ -108,4 +111,4 @@ begin
     o_ballX <= std_logic_vector(to_unsigned(r_ballX, o_ballX'length));
     o_BallY <= std_logic_vector(to_unsigned(r_ballY, o_ballY'length));
 
-end Behavior ; -- Behavior
+end architecture Behavior;
