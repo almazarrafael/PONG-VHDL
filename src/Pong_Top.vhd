@@ -4,13 +4,18 @@ use ieee.std_logic_1164.all;
 entity Pong_Top is
   port (
     i_Clk : in std_logic;
+
     i_UART_RX : in std_logic;
+    o_UART_TX : out std_logic;
+
     i_Switch_1 : in std_logic;
     i_Switch_2 : in std_logic;
     i_Switch_3 : in std_logic;
     i_Switch_4 : in std_logic;
+
     o_VGA_HSync : out std_logic;
     o_VGA_VSync : out std_logic;
+
     o_VGA_Red_0 : out std_logic;
     o_VGA_Red_1 : out std_logic;
     o_VGA_Red_2 : out std_logic;
@@ -20,6 +25,7 @@ entity Pong_Top is
     o_VGA_Blu_0 : out std_logic;
     o_VGA_Blu_1 : out std_logic;
     o_VGA_Blu_2 : out std_logic;
+
     o_Segment1_A : out std_logic;
     o_Segment1_B : out std_logic;
     o_Segment1_C : out std_logic;
@@ -27,6 +33,7 @@ entity Pong_Top is
     o_Segment1_E : out std_logic;
     o_Segment1_F : out std_logic;
     o_Segment1_G : out std_logic;
+
     o_Segment2_A : out std_logic;
     o_Segment2_B : out std_logic;
     o_Segment2_C : out std_logic;
@@ -54,6 +61,9 @@ architecture Behavior of Pong_Top is
     signal w_Switch_1, w_Switch_2, w_Switch_3, w_Switch_4 : std_logic;
     signal w_draw : std_logic;
     signal w_P1Score, w_P2Score : std_logic_vector(3 downto 0);
+    signal w_RX_DV : std_logic;
+    signal w_TX_Active : std_logic;
+    signal w_TX_Serial : std_logic;
 
 begin
 
@@ -64,15 +74,31 @@ begin
     port map (
       i_Clk       => i_Clk,
       i_RX_Serial => i_UART_RX,
-      o_RX_DV     => open,
+      o_RX_DV     => w_RX_DV,
       o_RX_Byte   => w_RX_Byte
     );
+
+    UART_Tx_Module : entity work.UART_TX
+    generic map (
+        g_CLKS_PER_BIT => 217
+        )
+    port map (
+        i_Clk       => i_Clk,
+        i_TX_DV     => w_RX_DV,
+        i_TX_Byte   => w_RX_Byte,
+        o_TX_Active => w_TX_Active,
+        o_TX_Serial => w_TX_Serial,
+        o_TX_Done   => open
+    );
+
+    o_UART_TX <= w_TX_Serial when (w_TX_Active = '1') else '1';
 
     -- UART Decoder to drive the right signals and hold its state
     UART_Decoder_Module : entity work.UART_Decoder
     port map (
      i_clk => i_Clk,
      i_inputByte => w_RX_Byte,
+     i_RX_DV => w_RX_DV,
      o_startGame => w_startGame,
      o_colorSel => w_colorSel
     );
