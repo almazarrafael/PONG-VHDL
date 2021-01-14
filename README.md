@@ -50,13 +50,13 @@ Circuit Diagram Schematic Tool:
 
 [DigiKey Scheme-it](https://www.digikey.com/schemeit/project/)
 
-Debounce:
+# Debounce:
 
 [DigiKey Debounce](https://www.digikey.com/eewiki/pages/viewpage.action?pageId=4980758)
 
 [NandLand Debounce](https://www.nandland.com/goboard/debounce-switch-project.html)
 
-UART:
+# UART:
 
 [DigiKey UART](https://www.digikey.com/eewiki/pages/viewpage.action?pageId=59507062)
 
@@ -64,13 +64,13 @@ UART:
 
 [NandLand UART Transmitter](https://www.nandland.com/goboard/uart-go-board-project-part2.html)
 
-VGA:
+# VGA:
 
 [DigiKey VGA](https://www.digikey.com/eewiki/pages/viewpage.action?pageId=15925278)
 
 [NandLand VGA](https://www.nandland.com/goboard/vga-introduction-test-patterns.html)
 
-PONG:
+# PONG:
 
 [fpga4fun PONG](https://www.fpga4fun.com/PongGame.html)
 
