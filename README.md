@@ -41,7 +41,7 @@ The creator of the Go Board also left some suggestions on improving the Pong gam
 4. Higher resolution - the Go Board can output 640x480 at 60Hz but currently the game is downscaled to 40x30. A few edits to the constants in the package and the signals, it should be easy to upscale it.
 
 ## images
-PONG Circuit Diagram
+PONG RTL Diagram
 ![PONG Circuit Diagram](https://raw.githubusercontent.com/almazarrafael/PONG-VHDL/main/RTL.PNG?token=ALHDSCTXKZRLWHOMZA2I7U3ABHZOA)
 
 ## resources
