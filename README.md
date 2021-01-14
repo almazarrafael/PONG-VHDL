@@ -42,12 +42,9 @@ The creator of the Go Board also left some suggestions on improving the Pong gam
 
 ## images
 PONG Circuit Diagram
-![PONG Circuit Diagram](https://raw.githubusercontent.com/almazarrafael/PONG-VHDL/main/PONG%20Block%20Diagram.PNG?token=ALHDSCWOQVSJVHICT7Z5TMDAAJD6Y)
+![PONG Circuit Diagram](https://raw.githubusercontent.com/almazarrafael/PONG-VHDL/main/RTL.PNG?token=ALHDSCTXKZRLWHOMZA2I7U3ABHZOA)
 
 ## resources
-### Circuit Diagram Schematic Tool:
-
-[DigiKey Scheme-it](https://www.digikey.com/schemeit/project/)
 
 ### Debounce:
 
