@@ -52,6 +52,9 @@ architecture Behavior of Pong_Game is
   signal r_P1Score, r_P2Score : integer range 0 to c_scoreLimit := 0; -- score limit: 9
 begin
 
+  w_colCount <= i_colCount;
+  w_rowCount <= i_rowCount;
+
   w_colCountDiv <= w_colCount(w_colcount'left downto 4);
   w_rowCountDiv <= w_rowCount(w_rowCount'left downto 4);
   
@@ -124,7 +127,7 @@ begin
         when s_P1_Wins =>
           if (r_P1Score = c_scoreLimit) then
             r_P1Score <= 0;
-            -- r_P2Score <= 0; Test later
+            r_P2Score <= 0;
           else
             r_P1Score <= r_P1Score + 1;
           end if;
@@ -132,7 +135,7 @@ begin
 
         when s_P2_Wins =>
           if (r_P2Score = c_scoreLimit) then
-            -- r_P1Score <= 0; Test later
+            r_P1Score <= 0;
             r_P2Score <= 0;
           else
             r_P2Score <= r_P2Score + 1;
@@ -155,7 +158,7 @@ begin
 
   --o_draw <= w_drawPaddleP2; -- always 0
   --o_draw <= w_drawPaddleP1; -- always 1
-  o_draw <= w_drawBall; -- always 0
-  --o_draw <= w_drawPaddleP2 or w_drawPaddleP1 or w_drawBall;
+  --o_draw <= w_drawBall; -- always 0
+  o_draw <= w_drawPaddleP2 or w_drawPaddleP1 or w_drawBall;
 
   end Behavior ; -- Behavior

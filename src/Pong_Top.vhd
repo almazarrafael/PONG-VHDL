@@ -55,9 +55,6 @@ architecture Behavior of Pong_Top is
     signal w_draw : std_logic;
     signal w_P1Score, w_P2Score : std_logic_vector(3 downto 0);
 
-    signal w_RX_DV : std_logic;
-
-
 begin
 
     -- UART Keyboard Input
@@ -67,7 +64,7 @@ begin
     port map (
       i_Clk       => i_Clk,
       i_RX_Serial => i_UART_RX,
-      o_RX_DV     => w_RX_DV,
+      o_RX_DV     => open,
       o_RX_Byte   => w_RX_Byte
     );
 
@@ -115,7 +112,7 @@ begin
 
     colorMuxModule : entity work.colorMux
     port map (
-        i_colorSel => "01", -- red, hardcoded for testing
+        i_colorSel => w_colorSel, -- red, hardcoded for testing
         i_draw     => w_draw,
         o_red      => w_red,
         o_green    => w_grn,
@@ -160,7 +157,7 @@ begin
     )
     port map (
         i_Clk       => i_Clk,
-        i_gameStart => w_RX_DV,
+        i_gameStart => w_startGame,
         i_P1Up      => w_Switch_1,
         i_P1Dn      => w_Switch_2,
         i_P2Up      => w_Switch_3,
