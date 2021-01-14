@@ -35,6 +35,12 @@ For use with Go Board. Using this on another FPGA will need to have the IO ident
 
 For anyone also using the Go Board. VHDL is not case sensitive but iCEcube2 is! Your inputs and outputs must exactly match the ones on the constraint file.
 
+## future improvements
+1. Rainbow mode - With 9 bits of RGB, it is possible to cycle through all 512 colors as the game goes or when someone scores a point.
+2. AI - It should be pretty straightforward to implement simple AI that checks the ball's Y coordinate and adjust itself accordingly.
+3. Additional colors - It's very trivial to add more colors at this point. Just need to expand the width of the output of the UART decoder and include the additional colors in the Color MUX.
+4. Higher resolution - the Go Board can output 640x480 at 60Hz but currently the game is downscaled to 40x30. A few edits to the constants in the package and the signals, it should be easy to upscale it.
+
 ## images
 PONG Circuit Diagram
 ![PONG Circuit Diagram](https://raw.githubusercontent.com/almazarrafael/PONG-VHDL/main/PONG%20Block%20Diagram.PNG?token=ALHDSCWOQVSJVHICT7Z5TMDAAJD6Y)
